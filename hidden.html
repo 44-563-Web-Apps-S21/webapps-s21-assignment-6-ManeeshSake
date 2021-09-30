@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>this is created by Maneesh Sake</title>
+     </head>
+ 
+<body>
+   
+
+<h2>Hidden things by Maneesh Sake</h2>
+
+<form>
+    <label for="form1">Enter the secret phrase</label>
+<input type ="password" id="form1" name="form1"  value="Let me in"> 
+    <br>
+
+    <label for="form2">Enter a phrase.</label>
+    <input type ="text" id="form2" name="form2" autofocus> 
+    <br>
+
+    <input type="button" onclick="processPhrase()" value="Check the phrase" placeholder="Check the phrase">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+    correct = 0;
+    wrong = 0;
+
+    function processPhrase (){
+        console.log("Getting form values")
+        form1 = document.getElementById("form1").value;
+        form2 = document.getElementById("form2").value;
+        out = document.getElementById("result")
+        if(form1 == form2){
+            correct = correct + 1;
+            alert("Access allowed");
+            out.innerHTML = correct
+
+        } else {
+            wrong = wrong + 1;
+            alert("Access denied");
+            out.innerHTML = wrong
+
+        }
+    }
+    </script>
+</body>
+</html>
