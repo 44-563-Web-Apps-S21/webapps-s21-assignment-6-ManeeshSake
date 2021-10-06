@@ -7,7 +7,7 @@
 <body>
    
 
-<h2>Hidden things by Maneesh Sake</h2>
+<h2>passed by Maneesh Sake</h2>
 
 <form>
     <label for="form1">Enter the secret phrase</label>
@@ -36,15 +36,33 @@
         if(form1 == form2){
             correct = correct + 1;
             alert("Access allowed");
-            out.innerHTML = correct
+            out.innerHTML = "count is" + correct
 
         } else {
             wrong = wrong + 1;
             alert("Access denied");
-            out.innerHTML = wrong
+            out.innerHTML =  "count is" + wrong
 
         }
     }
-    </script>
+    var usingImage = 1;
+function newImage() {
+    switch (usingImage) {
+        case 1:
+            document.getElementById("animal-image").src = "Magpie.jpg"
+            usingImage = 2
+            break
+        case 2:
+            document.getElementById("animal-image").src = "Aardvark.jpg"
+            usingImage = 3
+            break
+        case 3:
+            document.getElementById("animal-image").src = "Narwhal.jpg"
+            usingImage = 1
+            break
+    }
+}
+</script>
+
 </body>
-</html>
+</html> 

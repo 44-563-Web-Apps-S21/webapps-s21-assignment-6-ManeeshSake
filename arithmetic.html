@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>create looping</title>
+</head>
+<body>
+<h1>Maneesh Sake computes</h1>
+<h2>Getting input</h2>
+
+<form>
+    <label for="baseValue">Enter a base </label>
+    <input type ="number" id="baseValue" name="baseValue" value=10> <br>
+
+    <label for="exponentValue">Enter an exponent </label>
+    <input type ="number" id="exponentValue" name="exponentValue" value=2> <br>
+
+    <input type="button" onclick="powers()" value="Compute">
+</form>
+
+<p id="result">This text will be replaced </p>
+
+<form>
+    <input type="radio" id="field_add" name="operation" value="plus" onclick="processRadio()">
+    <label for="field_add">+</label></br>
+  
+    <input type="radio" id="field_minus" name="operation" value="minus" onclick="processRadio()">
+    <label for="field_minus">-</label></br>
+  
+    <input type="radio" id="field _times" name="operation" value="times" onclick="processRadio()">
+    <label for="field _times">*</label></br>
+
+    <input type="radio" id="field _divide" name="operation" value="divide" onclick="processRadio()">
+    <label for="field _divide">/</label></br>
+</form>
+
+<p id="radioResult">This text will be replaced </p>
+
+<script> 
+
+function powers (){
+    console.log("Getting form values")
+    base = document.getElementById("baseValue").value
+    exponent = document.getElementById("exponentValue").value
+    var result = "Powers of " + base + " are: "
+    r = 1
+    out = document.getElementById("result")
+    for(i=1; i<=exponent; i++){
+        r *= base;
+        result += r + " "
+    }
+    out.innerHTML = result
+}
+function processRadio() {
+    base = document.getElementById("baseValue").value
+    exponent = document.getElementById("exponentValue").value
+    plus = document.getElementById("field_add").checked
+    minus = document.getElementById("field_minus").checked
+    times = document.getElementById("field _times").checked
+    divide = document.getElementById("field _divide").checked
+    result = document.getElementById("radioResult")
+
+    if(plus)
+    result.innerHTML = +base + +exponent
+    else if(minus)
+    result.innerHTML = base - exponent
+    else if(times)
+    result.innerHTML = base * exponent
+    else
+    result.innerHTML = base / exponent
+}
+
+</script>
+
+</body>
+</html> 
