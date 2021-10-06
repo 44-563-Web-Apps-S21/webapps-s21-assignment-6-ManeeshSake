@@ -29,22 +29,37 @@
 <script> 
 var correct = 0;
 var wrong = 0;
+var counter1= 0;
+    var counter2= 0;
 function processPhrase (){
+
     console.log("Getting form values")
     secret_phrase = document.getElementById("secret_phrase").value
     check_phrase = document.getElementById("check_phrase").value
     
     out = document.getElementById("result")
     if(secret_phrase == check_phrase){
+        counter1 += 1;
+        counter2 = 0;
         correct += 1
         alert("Access allowed.")
         out.innerHTML = "Correct Count: " + correct
     } else {
+        counter2 += 1;
+        counter1 = 0;
         wrong += 1
-        alert("Access denied.")
+        alert("Access denied.",counter2)
         out.innerHTML = "Wrong Count: " + wrong
-    
+        if(counter2 >= 3){
+            if(wrong >=3){
+                incorrect()
+            }
         }
+        }
+    }
+
+    function incorrect(){
+        alert("account locked")
     }
     var usingImage = 1;
 function newImage() {
