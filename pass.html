@@ -10,39 +10,40 @@
 <h2>passed by Maneesh Sake</h2>
 
 <form>
-    <label for="form1">Enter the secret phrase</label>
-<input type ="password" id="form1" name="form1"  value="Let me in"> 
-    <br>
+    <label for="secret_phrase">Enter the secret phrase </label>
+    <input type ="password" id="secret_phrase" name="secret_phrase" value="Let me in"> <br>
 
-    <label for="form2">Enter a phrase.</label>
-    <input type ="text" id="form2" name="form2" autofocus> 
-    <br>
+    <label for="check_phrase">Enter a phrase </label>
+    <input type ="text" id="check_phrase" name="check_phrase" autofocus> <br>
 
-    <input type="button" onclick="processPhrase()" value="Check the phrase" placeholder="Check the phrase">
+    <input type="button" onclick="processPhrase()" value="Check the phrase">
 </form>
 
 
 <p id="result">This text will be replaced </p>
 
+<div class="container">
+    <img id="animal-image" width="200" height="200" src="Magpie.jpg" alt="Picture Magpie" onclick="newImage()">
+</div>
+
 <script> 
-    correct = 0;
-    wrong = 0;
-
-    function processPhrase (){
-        console.log("Getting form values")
-        form1 = document.getElementById("form1").value;
-        form2 = document.getElementById("form2").value;
-        out = document.getElementById("result")
-        if(form1 == form2){
-            correct = correct + 1;
-            alert("Access allowed");
-            out.innerHTML = "count is" + correct
-
-        } else {
-            wrong = wrong + 1;
-            alert("Access denied");
-            out.innerHTML =  "count is" + wrong
-
+var correct = 0;
+var wrong = 0;
+function processPhrase (){
+    console.log("Getting form values")
+    secret_phrase = document.getElementById("secret_phrase").value
+    check_phrase = document.getElementById("check_phrase").value
+    
+    out = document.getElementById("result")
+    if(secret_phrase == check_phrase){
+        correct += 1
+        alert("Access allowed.")
+        out.innerHTML = "Correct Count: " + correct
+    } else {
+        wrong += 1
+        alert("Access denied.")
+        out.innerHTML = "Wrong Count: " + wrong
+    
         }
     }
     var usingImage = 1;
