@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+ <head>
+     <title>Creating Cars page</title>
+ </head>
+<body>
+
+<h3>Maneesh Sake project</h3>
+<form>
+    <label>electric</label>
+    <input type="checkbox" id="cb1" name="cb"value="electric">
+    <label>ac</label>
+    <input type="checkbox" id="cb2" name="cb" value="ac">
+    <label>gps</label>
+    <input type="checkbox" id="cb3" name="cb" value="gps">
+    <input type ="button" value="Order a car" onclick="orderCar()">
+</form>
+<p id="result">This text will be replaced</p>
+<br>
+ <form>
+    <label >Enter a property</label>
+    <input type ="text" id="color1" name="color"  value="color"> <br>
+    
+    <label >Enter a value</label>
+    <input type ="text" id="value1" name="color"  > <br>
+    <br>
+    <input type="button" onclick="updateCar()" value="Update the car">
+</form> 
+ <p id="results">This text will  replaced </p> 
+
+<script> 
+
+function resolveForm (){
+    console.log("Getting form values")
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+
+var my_car= {}
+function orderCar(){
+    var box= document.getElementsByName("box")
+var electric= document.getElementById("cb1").value
+var ac= document.getElementById("cb2").value
+var gps= document.getElementById("cb3").value
+out=document.getElementById("result")
+if(box[0].checked == true){
+ my_car.electric= true
+ }
+ else{
+    my_car.electric= false
+ }
+ if(box[1].checked == true){
+ my_car.ac= true
+ }
+ else{
+    my_car.ac= false
+ }
+if(box[2].checked == true){
+my_car.gps= true
+ }
+ else{
+    my_car.gps= false
+ }
+console.log(my_car);
+//const myArray = Object.values(my_car);
+//out.innerHTML= myArray
+out.innerHTML = "{electric:"+my_car.electric + ", " + "ac:"+my_car.ac + ", " +"gps:"+ my_car.gps+"}";
+}
+
+function updateCar(){
+    var color= document.getElementsByName("color")
+    property = document.getElementById("color1").value
+    color1 = document.getElementById("value1").value
+    my_car={}
+    my_car.property= color1
+    out = document.getElementById("results")
+    out.innerHTML ="my_car["+property+"]="+ my_car.property
+}
+
+</script>
+
+</body>
+</html> 
